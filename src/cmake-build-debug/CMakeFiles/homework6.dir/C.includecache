@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/viktor/CLionProjects/homework6/argvalidate.c
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+argvalidate.h
+/home/viktor/CLionProjects/homework6/argvalidate.h
+
+/home/viktor/CLionProjects/homework6/argvalidate.h
+

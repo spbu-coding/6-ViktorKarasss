@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/homework6.dir/string_comparer.c.o CMakeFiles/homework6.dir/sortings.c.o CMakeFiles/homework6.dir/argvalidate.c.o CMakeFiles/homework6.dir/file_handler.c.o  -o homework6 

@@ -28,7 +28,7 @@ int is_in(char* name, const char** name_list, int list_size){
 }
 
 int is_int(const char* str) {
-    for(int i = 0; i < strlen(str); i++){
+    for(long unsigned int i = 0; i < strlen(str); i++){
         if(str[i] > '9' || str[i] < '0')
             return 0;
     }

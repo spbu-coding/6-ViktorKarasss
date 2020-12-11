@@ -20,10 +20,10 @@ void sort(strings_array_t array, array_size_t size, comparator_func_t comparator
 }
 
 void bubble(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    int no_swap;
+    unsigned long no_swap;
     for (unsigned long i = size - 1; i >= 0; i--) {
         no_swap = 1;
-        for (int j = 0; j < i; j++) {
+        for (unsigned long j = 0; j < i; j++) {
             if (comparator(array[j], array[j + 1])) {
                 char *tmp = array[j];
                 array[j] = array[j + 1];
@@ -37,10 +37,10 @@ void bubble(strings_array_t array, array_size_t size, comparator_func_t comparat
 }
 
 void insertion(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    int location;
+    unsigned long location;
     char *new_element;
 
-    for (int i = 1; i < size; i++) {
+    for (unsigned long i = 1; i < size; i++) {
         new_element = array[i];
         location = i - 1;
         while (location >= 0 && comparator(array[location], new_element)) {
@@ -52,12 +52,12 @@ void insertion(strings_array_t array, array_size_t size, comparator_func_t compa
 }
 
 void merge(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    int step = 1;
+    unsigned long step = 1;
     char **temp = malloc(sizeof(char *) * size);
 
     while (step < size) {
-        int index = 0;
-        int l = 0;
+        unsigned long index = 0;
+        unsigned long l = 0;
         unsigned long m = l + step;
         unsigned long r = l + step * 2;
         do {
@@ -74,7 +74,7 @@ void merge(strings_array_t array, array_size_t size, comparator_func_t comparato
             m += step * 2;
             r += step * 2;
         } while (l < size);
-        for (int i = 0; i < size; i++)
+        for (unsigned long i = 0; i < size; i++)
             array[i] = temp[i];
         step *= 2;
     }
@@ -83,9 +83,9 @@ void merge(strings_array_t array, array_size_t size, comparator_func_t comparato
 }
 
 
-void reqursion_quick(strings_array_t array, int first, int last, comparator_func_t comparator) {
+void reqursion_quick(strings_array_t array, unsigned long first, unsigned long last, comparator_func_t comparator) {
     if (first < last) {
-        int left = first, right = last;
+        unsigned long left = first, right = last;
         char *middle = array[(left + right) / 2];
         do {
             while (comparator(middle, array[left])) left++; // <
@@ -104,7 +104,7 @@ void reqursion_quick(strings_array_t array, int first, int last, comparator_func
 }
 
 void quick(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    int right = (int) size - 1;
+    unsigned long right = (unsigned long ) size - 1;
     reqursion_quick(array, 0, right, comparator);
 }
 
@@ -117,14 +117,14 @@ static void swap_strings(const char **a, const char **b) {
 }
 
 
-static void reqursion_radix(int size, const char **array, int symbol) {
-    int i;
-    int count[UCHAR_MAX + 1];
-    int mode;
+static void reqursion_radix(unsigned long size, const char **array, unsigned long symbol) {
+    unsigned long i;
+    unsigned long count[UCHAR_MAX + 1];
+    unsigned long mode;
     const char **bucket[UCHAR_MAX + 1];
     const char **top[UCHAR_MAX + 1];
     while (size > 1) {
-        memset(count, 0, sizeof(int) * (UCHAR_MAX + 1));
+        memset(count, 0, sizeof(unsigned long ) * (UCHAR_MAX + 1));
         for (i = 0; i < size; i++) {
             count[(unsigned char) array[i][symbol]]++;
         }
@@ -166,7 +166,7 @@ static void reqursion_radix(int size, const char **array, int symbol) {
 void radix(strings_array_t array, array_size_t size, comparator_func_t comparator) {
     reqursion_radix(size, (const char **) array, 0);
     if (comparator("a", "b")) {
-        for (int i = 0; i < size / 2; i++) {
+        for (unsigned long i = 0; i < size / 2; i++) {
             char *temp = array[i];
             array[i] = array[size - i - 1];
             array[size - i - 1] = temp;

@@ -23,7 +23,7 @@ void bubble(strings_array_t array, array_size_t size, comparator_func_t comparat
     unsigned long no_swap;
     for (int i = (int)size - 1; i >= 0; i--) {
         no_swap = 1;
-        for (unsigned long j = 0; j < i; j++) {
+        for (int j = 0; j < i; j++) {
             if (comparator(array[j], array[j + 1])) {
                 char *tmp = array[j];
                 array[j] = array[j + 1];

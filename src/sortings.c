@@ -21,7 +21,7 @@ void sort(strings_array_t array, array_size_t size, comparator_func_t comparator
 
 void bubble(strings_array_t array, array_size_t size, comparator_func_t comparator) {
     unsigned long no_swap;
-    for (unsigned long i = size - 1; i >= 0; i--) {
+    for (int i = (int)size - 1; i >= 0; i--) {
         no_swap = 1;
         for (unsigned long j = 0; j < i; j++) {
             if (comparator(array[j], array[j + 1])) {
@@ -37,7 +37,7 @@ void bubble(strings_array_t array, array_size_t size, comparator_func_t comparat
 }
 
 void insertion(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    unsigned long location;
+    int location;
     char *new_element;
 
     for (unsigned long i = 1; i < size; i++) {
@@ -104,7 +104,7 @@ void reqursion_quick(strings_array_t array, unsigned long first, unsigned long l
 }
 
 void quick(strings_array_t array, array_size_t size, comparator_func_t comparator) {
-    unsigned long right = (unsigned long ) size - 1;
+    unsigned long right = size - 1;
     reqursion_quick(array, 0, right, comparator);
 }
 

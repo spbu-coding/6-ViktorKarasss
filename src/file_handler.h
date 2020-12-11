@@ -7,6 +7,6 @@
 
 #endif //HOMEWORK6_FILE_HANDLER_H
 
-void read(FILE* file, char** array);
+void read(FILE* file, char** array, int size);
 
 void write(FILE* file, char** array, int size);

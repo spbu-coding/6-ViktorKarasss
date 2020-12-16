@@ -40,22 +40,16 @@ int is_int(const char *str) {
 }
 
 int count_str(FILE *file) {
-    char *estr;
-    char str[MAX_INPUT_STRING_SIZE + 1];
-    int i = 0;
-    while (1) {
-        estr = fgets(str, sizeof(str), file);
-        if (estr == NULL) {
-            if (feof(file) != 0) {
-                break;
-            } else {
-                printf("Read file error\n");
-                exit(-1);
-            }
+    int count_of_input_strings = 0;
+    char *input_string = malloc(sizeof(char) * MAX_INPUT_STRING_SIZE);
+    while(!feof(file)){
+        if(fgets(input_string, MAX_INPUT_STRING_SIZE, file) != NULL){
+            count_of_input_strings++;
         }
-        i++;
     }
-    return i;
+    free(input_string);
+
+    return count_of_input_strings;
 }
 
 int validate(int argc, char **argv) {
